@@ -1,0 +1,18 @@
+title: Suricata sensor alert hypothesis
+id: 262fd840-6251-5f69-9477-a68689aaf8ef
+name: suricata_hypothesis
+status: experimental
+description: Original synthetic/lab detection hypothesis; validate locally before
+  use.
+author: Mini-SIEM contributors
+date: '2026-10-12'
+logsource:
+  product: minisiem
+  service: suricata
+detection:
+  selection:
+    message|contains: MINISIEM
+  condition: selection
+level: medium
+tags:
+- attack.t1071

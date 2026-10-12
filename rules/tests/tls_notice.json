@@ -1,0 +1,26 @@
+[
+  {
+    "name": "positive",
+    "records": [
+      {
+        "timestamp": "2025-01-01T00:00:00+00:00",
+        "dataset": "zeek.notice",
+        "action": "SSL::Invalid_Server_Cert"
+      }
+    ],
+    "expected": [
+      "tls_notice"
+    ]
+  },
+  {
+    "name": "negative",
+    "records": [
+      {
+        "timestamp": "2025-01-01T00:00:00+00:00",
+        "dataset": "zeek.notice",
+        "action": "Lab::Benign"
+      }
+    ],
+    "expected": []
+  }
+]

@@ -1,0 +1,62 @@
+%YAML 1.1
+---
+# Original offline-only configuration. No upstream rule downloads.
+vars:
+  address-groups:
+    HOME_NET: "[192.0.2.0/24,198.51.100.0/24,203.0.113.0/24]"
+    EXTERNAL_NET: "any"
+  port-groups:
+    HTTP_PORTS: "80"
+    SHELLCODE_PORTS: "!80"
+    SSH_PORTS: "22"
+    TLS_PORTS: "443"
+classification-file: /classification.config
+reference-config-file: /reference.config
+threshold-file: /threshold.config
+default-log-dir: /output
+outputs:
+  - eve-log:
+      enabled: yes
+      filetype: regular
+      filename: eve.json
+      community-id: true
+      community-id-seed: 0
+      types:
+        - alert
+        - http
+        - dns
+        - tls
+        - flow
+        - stats:
+            totals: yes
+            threads: no
+  - stats:
+      enabled: yes
+      filename: stats.log
+      totals: yes
+      threads: no
+logging:
+  default-log-level: notice
+  outputs:
+    - console:
+        enabled: yes
+        type: json
+stats:
+  enabled: yes
+  interval: 1
+stream:
+  memcap: 64mb
+  checksum-validation: yes
+  reassembly:
+    memcap: 64mb
+app-layer:
+  protocols:
+    http:
+      enabled: yes
+    dns:
+      tcp:
+        enabled: yes
+      udp:
+        enabled: yes
+    tls:
+      enabled: yes

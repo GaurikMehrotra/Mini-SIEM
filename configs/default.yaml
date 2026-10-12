@@ -1,0 +1,7 @@
+api_version: 1
+schema_version: 3
+database: data/minisiem.db
+bind: 127.0.0.1
+port: 8000
+rules: rules/custom
+# Operational defaults are in minisiem.config; override with MINISIEM_LIMITS.

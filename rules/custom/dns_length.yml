@@ -1,0 +1,18 @@
+title: Unusually long synthetic DNS question
+id: 01f7468a-ea18-518b-8c22-da7cabe82c34
+name: dns_length
+status: experimental
+description: Original synthetic/lab detection hypothesis; validate locally before
+  use.
+author: Mini-SIEM contributors
+date: '2026-10-12'
+logsource:
+  product: minisiem
+  service: dns
+detection:
+  selection:
+    dns_question|re: .{80,}
+  condition: selection
+level: medium
+tags:
+- attack.t1071.004

@@ -1,0 +1,28 @@
+[
+  {
+    "name": "positive",
+    "records": [
+      {
+        "timestamp": "2025-01-01T00:00:00+00:00",
+        "host": "lab-node",
+        "source_ip": "192.0.2.10",
+        "dataset": "syslog",
+        "outcome": "failure"
+      }
+    ],
+    "expected": [
+      "ssh_failure"
+    ]
+  },
+  {
+    "name": "negative",
+    "records": [
+      {
+        "timestamp": "2025-01-01T00:00:00+00:00",
+        "dataset": "syslog",
+        "outcome": "success"
+      }
+    ],
+    "expected": []
+  }
+]

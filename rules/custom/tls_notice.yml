@@ -1,0 +1,18 @@
+title: Zeek certificate notice hypothesis
+id: 22131799-503b-580c-bb51-f8179722bda0
+name: tls_notice
+status: experimental
+description: Original synthetic/lab detection hypothesis; validate locally before
+  use.
+author: Mini-SIEM contributors
+date: '2026-10-12'
+logsource:
+  product: minisiem
+  service: notice
+detection:
+  selection:
+    action|contains: 'SSL::'
+  condition: selection
+level: medium
+tags:
+- attack.t1573

@@ -1,0 +1,57 @@
+services:
+  core:
+    profiles: [core]
+    build:
+      context: ..
+    user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
+    network_mode: host
+    env_file: ../.env
+    environment:
+      MINISIEM_DATA: /app/data
+    volumes:
+      - ../data:/app/data
+    mem_limit: 1g
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    read_only: true
+    tmpfs: [/tmp]
+    command: [minisiem, serve]
+  zeek:
+    profiles: [sensors]
+    image: zeek/zeek:8.0.2@sha256:46dad84bfd94ebd5b76c6db7f5e2ccb2327fb3a78885dbb6dd3ff06517da1f6b
+    user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
+    network_mode: none
+    volumes:
+      - ../data/pcaps:/pcaps:ro
+      - ../data/zeek:/output
+      - ./sensors/zeek.zeek:/config/zeek.zeek:ro
+    working_dir: /output
+    mem_limit: 1g
+    cpus: 2
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    read_only: true
+    tmpfs: [/tmp]
+    entrypoint: [zeek]
+    command: [-r, /pcaps/benign.pcap, /config/zeek.zeek]
+  suricata:
+    profiles: [sensors]
+    image: jasonish/suricata:8.0.2@sha256:8265743d05e225ed0a83c9223ec25fb2eeb019098e1f3d0c5d53a1db4d4d3559
+    user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
+    network_mode: none
+    volumes:
+      - ../data/pcaps:/pcaps:ro
+      - ../data/suricata:/output
+      - ./sensors/local.rules:/rules/local.rules:ro
+      - ./sensors/suricata.yaml:/config.yaml:ro
+      - ./sensors/classification.config:/classification.config:ro
+      - ./sensors/reference.config:/reference.config:ro
+      - ./sensors/threshold.config:/threshold.config:ro
+    mem_limit: 1g
+    cpus: 2
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    read_only: true
+    tmpfs: [/tmp, /var/lib/suricata, /var/run/suricata]
+    entrypoint: [suricata]
+    command: [-c, /config.yaml, -r, /pcaps/benign.pcap, -l, /output, -S, /rules/local.rules, --runmode, single, --set, outputs.1.eve-log.community-id=true]

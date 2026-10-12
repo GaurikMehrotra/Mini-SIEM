@@ -1,0 +1,7 @@
+# Source IDs should identify a stable sensor/stream, not its current rotated filename.
+sources:
+  synthetic: {parser: jsonl, ownership: synthetic}
+  lab-syslog: {parser: syslog, ownership: isolated_lab}
+  lab-web: {parser: web, ownership: isolated_lab}
+  lab-zeek-conn: {parser: zeek.conn, ownership: isolated_lab}
+  lab-suricata: {parser: suricata, ownership: isolated_lab}

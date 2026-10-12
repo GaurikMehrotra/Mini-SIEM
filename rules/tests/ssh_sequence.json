@@ -1,0 +1,77 @@
+[
+  {
+    "name": "positive",
+    "records": [
+      {
+        "timestamp": "2025-01-01T00:00:00+00:00",
+        "host": "lab-node",
+        "source_ip": "192.0.2.10",
+        "dataset": "syslog",
+        "outcome": "failure"
+      },
+      {
+        "timestamp": "2025-01-01T00:00:30+00:00",
+        "host": "lab-node",
+        "source_ip": "192.0.2.10",
+        "dataset": "syslog",
+        "outcome": "success"
+      }
+    ],
+    "expected": [
+      "ssh_sequence"
+    ]
+  },
+  {
+    "name": "negative",
+    "records": [
+      {
+        "timestamp": "2025-01-01T00:00:00+00:00",
+        "host": "lab-node",
+        "source_ip": "192.0.2.10",
+        "dataset": "syslog",
+        "outcome": "failure"
+      }
+    ],
+    "expected": []
+  },
+  {
+    "name": "outside-window",
+    "records": [
+      {
+        "timestamp": "2025-01-01T00:00:00+00:00",
+        "host": "lab-node",
+        "source_ip": "192.0.2.10",
+        "dataset": "syslog",
+        "outcome": "failure"
+      },
+      {
+        "timestamp": "2025-01-01T00:03:00+00:00",
+        "host": "lab-node",
+        "source_ip": "192.0.2.10",
+        "dataset": "syslog",
+        "outcome": "success"
+      }
+    ],
+    "expected": []
+  },
+  {
+    "name": "wrong-order",
+    "records": [
+      {
+        "timestamp": "2025-01-01T00:00:00+00:00",
+        "host": "lab-node",
+        "source_ip": "192.0.2.10",
+        "dataset": "syslog",
+        "outcome": "success"
+      },
+      {
+        "timestamp": "2025-01-01T00:00:30+00:00",
+        "host": "lab-node",
+        "source_ip": "192.0.2.10",
+        "dataset": "syslog",
+        "outcome": "failure"
+      }
+    ],
+    "expected": []
+  }
+]

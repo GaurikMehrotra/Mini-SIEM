@@ -1,0 +1,4 @@
+# Example findings import from an owned lab vulnerability scanner.
+198.51.100.20:
+  asset: synthetic-lab-server
+  findings: []

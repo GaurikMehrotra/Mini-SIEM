@@ -1,0 +1,1 @@
+"""Mini-SIEM alerts components."""

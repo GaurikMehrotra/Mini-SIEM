@@ -1,0 +1,1 @@
+192.0.2.10 - synthetic-alice [01/Jan/2025:00:00:00 +0000] "GET /lab HTTP/1.1" 200 3 "-" "MiniSIEM-fixture"

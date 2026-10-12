@@ -1,0 +1,15 @@
+line_bytes: 65536
+field_chars: 4096
+batch_size: 500
+rows: 500
+query_seconds: 0.25
+regex_chars: 256
+range_days: 31
+future_seconds: 300
+retention_days: 30
+minimum_disk_bytes: 104857600
+request_bytes: 262144
+requests_per_minute: 120
+correlation_seconds: 300
+grouping_seconds: 300
+late_seconds: 600

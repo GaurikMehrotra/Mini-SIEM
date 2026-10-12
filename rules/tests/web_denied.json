@@ -1,0 +1,26 @@
+[
+  {
+    "name": "positive",
+    "records": [
+      {
+        "timestamp": "2025-01-01T00:00:00+00:00",
+        "dataset": "web.access",
+        "http_status": 403
+      }
+    ],
+    "expected": [
+      "web_denied"
+    ]
+  },
+  {
+    "name": "negative",
+    "records": [
+      {
+        "timestamp": "2025-01-01T00:00:00+00:00",
+        "dataset": "web.access",
+        "http_status": 200
+      }
+    ],
+    "expected": []
+  }
+]

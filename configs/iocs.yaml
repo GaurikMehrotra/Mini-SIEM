@@ -1,0 +1,4 @@
+# Illustrative offline IOC only; .invalid is reserved and never contacted.
+example.invalid:
+  source: original synthetic fixture
+  confidence: low

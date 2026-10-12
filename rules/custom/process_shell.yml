@@ -1,0 +1,18 @@
+title: Synthetic shell process creation
+id: 8dc84077-dd10-5c94-ab05-1b8330d9d0e1
+name: process_shell
+status: experimental
+description: Original synthetic/lab detection hypothesis; validate locally before
+  use.
+author: Mini-SIEM contributors
+date: '2026-10-12'
+logsource:
+  product: minisiem
+  service: process_creation
+detection:
+  selection:
+    process_name|endswith: powershell.exe
+  condition: selection
+level: medium
+tags:
+- attack.t1059.001

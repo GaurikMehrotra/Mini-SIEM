@@ -1,0 +1,2 @@
+# Original benign fixture signature, not an upstream rule set.
+alert http any any -> any any (msg:"MINISIEM benign HTTP fixture"; flow:established,to_server; http.uri; content:"/lab"; sid:1000001; rev:1;)

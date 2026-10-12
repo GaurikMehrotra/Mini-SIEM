@@ -1,0 +1,20 @@
+title: Web authorization denied
+id: 7d9f0507-969c-5e0d-b230-b27fc69e42bc
+name: web_denied
+status: experimental
+description: Original synthetic/lab detection hypothesis; validate locally before
+  use.
+author: Mini-SIEM contributors
+date: '2026-10-12'
+logsource:
+  product: minisiem
+  service: web
+detection:
+  selection:
+    http_status:
+    - 401
+    - 403
+  condition: selection
+level: medium
+tags:
+- attack.t1595

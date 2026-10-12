@@ -1,0 +1,39 @@
+title: Distinct destination ports in Zeek connections evidence connection
+id: 5341ccab-0ab2-59af-ac72-6753b800bca2
+name: port_spread_connection
+status: experimental
+description: Original synthetic/lab detection hypothesis; validate locally before
+  use.
+author: Mini-SIEM contributors
+date: '2026-10-12'
+logsource:
+  product: minisiem
+  service: generic
+detection:
+  selection:
+    dataset: zeek.conn
+  condition: selection
+level: medium
+tags:
+- attack.t1046
+x-minisiem-evidence-only: true
+---
+title: Distinct destination ports in Zeek connections
+id: 35ea67bf-89e7-5010-8268-f12c04882567
+name: port_spread
+status: experimental
+author: Mini-SIEM contributors
+description: Original bounded synthetic/lab correlation hypothesis.
+correlation:
+  type: value_count
+  rules:
+  - port_spread_connection
+  group-by:
+  - source_ip
+  timespan: 2m
+  condition:
+    field: destination_port
+    gte: 3
+level: high
+tags:
+- attack.t1046

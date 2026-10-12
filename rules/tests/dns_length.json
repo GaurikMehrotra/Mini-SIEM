@@ -1,0 +1,26 @@
+[
+  {
+    "name": "positive",
+    "records": [
+      {
+        "timestamp": "2025-01-01T00:00:00+00:00",
+        "dataset": "zeek.dns",
+        "dns_question": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.invalid"
+      }
+    ],
+    "expected": [
+      "dns_length"
+    ]
+  },
+  {
+    "name": "negative",
+    "records": [
+      {
+        "timestamp": "2025-01-01T00:00:00+00:00",
+        "dataset": "zeek.dns",
+        "dns_question": "lab.invalid"
+      }
+    ],
+    "expected": []
+  }
+]

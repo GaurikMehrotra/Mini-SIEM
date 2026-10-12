@@ -1,0 +1,36 @@
+{
+  "name": "Splunk attack_data: exported Sysmon PowerShell lab subset",
+  "repository": "https://github.com/splunk/attack_data.git",
+  "commit": "4389fa7a4e74a7c083c0fbe448fa2c7c32378981",
+  "license": "Apache-2.0",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/splunk/attack_data/blob/4389fa7a4e74a7c083c0fbe448fa2c7c32378981/LICENSE",
+  "terms_review_date": "2026-10-12",
+  "provenance": "Upstream case metadata explicitly identifies the synthetic attack_range lab environment; only static exported telemetry is read, never upstream commands or simulations.",
+  "label_granularity": "scenario/technique, not per-event malicious/benign labels",
+  "cases": [
+    {
+      "name": "encoded_powershell",
+      "metadata_path": "datasets/attack_techniques/T1059.001/encoded_powershell/encoded_powershell.yml",
+      "metadata_id": "cc9b264d-efc9-11eb-926b-550bf0943fbb",
+      "author": "Patrick Bareiss",
+      "techniques": ["T1059.001"],
+      "expected_relevant_rules": ["process_shell"],
+      "files": [
+        {"path": "datasets/attack_techniques/T1059.001/encoded_powershell/padded_windows-sysmon.log", "sha256": "0324ee4e5f2cb4c761e10862808c37a046097a2ad800d034490e3980c3e86dec", "bytes": 11135},
+        {"path": "datasets/attack_techniques/T1059.001/encoded_powershell/explorer_spawns_windows-sysmon.log", "sha256": "9200692ad74037b5234fe6f7da733d3e416b0ea8bb7f6d8ebb5bd16fc39b8b22", "bytes": 13142}
+      ]
+    },
+    {
+      "name": "powershell_remotesigned",
+      "metadata_path": "datasets/attack_techniques/T1059.001/powershell_remotesigned/powershell_remotesigned.yml",
+      "metadata_id": "a92e1082-ce62-4cdd-88e2-96707c6b0a39",
+      "author": "Teoderick Contreras, Splunk",
+      "techniques": ["T1059.001"],
+      "expected_relevant_rules": ["process_shell"],
+      "files": [
+        {"path": "datasets/attack_techniques/T1059.001/powershell_remotesigned/remotesigned_sysmon.log", "sha256": "a47baee10e74c0f675a26a9f3153a35109938a6570b9b75cb5047be03eea78c5", "bytes": 2017}
+      ]
+    }
+  ]
+}

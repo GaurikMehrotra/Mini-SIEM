@@ -1,0 +1,18 @@
+title: SSH authentication failure
+id: b7af9ae4-94eb-53fc-b433-c0e7ee7b5cc0
+name: ssh_failure
+status: experimental
+description: Original synthetic/lab detection hypothesis; validate locally before
+  use.
+author: Mini-SIEM contributors
+date: '2026-10-12'
+logsource:
+  product: minisiem
+  service: ssh
+detection:
+  selection:
+    outcome: failure
+  condition: selection
+level: medium
+tags:
+- attack.t1110

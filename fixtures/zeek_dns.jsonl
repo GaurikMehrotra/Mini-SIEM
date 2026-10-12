@@ -1,0 +1,1 @@
+{"ts": 1735689600, "id.orig_h": "192.0.2.10", "id.resp_h": "198.51.100.20", "id.orig_p": 41000, "id.resp_p": 53, "proto": "udp", "query": "lab.invalid", "uid": "C-synthetic-dns"}

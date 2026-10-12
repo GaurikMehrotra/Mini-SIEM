@@ -1,0 +1,21 @@
+# Auditable reference; the executable custom pipeline is detect/sigma_loader.py.
+Image: process_name
+CommandLine: command_line
+OriginalFileName: original_file_name
+EventID: event_code
+Channel: channel
+Computer: host
+User: user
+SourceIp: source_ip
+DestinationIp: destination_ip
+DestinationPort: destination_port
+SourcePort: source_port
+query: dns_question
+uri: http_url
+status_code: http_status
+note: action
+signature: message
+id.orig_h: source_ip
+id.resp_h: destination_ip
+id.orig_p: source_port
+id.resp_p: destination_port

@@ -1,0 +1,6 @@
+# Reference policy. Set retention_days in MINISIEM_LIMITS to configure the worker.
+retention_days: 30
+schedule_seconds: 30
+scope: [events, quarantine, ingest_runs, event_fts, orphan_alerts, evidence, links]
+method: SQL delete with triggers, WAL checkpoint, VACUUM
+# Logical and database-file deletion cannot guarantee erasure from filesystem snapshots.

@@ -1,0 +1,85 @@
+[
+  {
+    "name": "positive",
+    "records": [
+      {
+        "timestamp": "2025-01-01T00:00:00+00:00",
+        "host": "lab-node",
+        "source_ip": "192.0.2.10",
+        "dataset": "zeek.conn",
+        "destination_port": 22
+      },
+      {
+        "timestamp": "2025-01-01T00:00:30+00:00",
+        "host": "lab-node",
+        "source_ip": "192.0.2.10",
+        "dataset": "zeek.conn",
+        "destination_port": 80
+      },
+      {
+        "timestamp": "2025-01-01T00:01:00+00:00",
+        "host": "lab-node",
+        "source_ip": "192.0.2.10",
+        "dataset": "zeek.conn",
+        "destination_port": 443
+      }
+    ],
+    "expected": [
+      "port_spread"
+    ]
+  },
+  {
+    "name": "negative",
+    "records": [
+      {
+        "timestamp": "2025-01-01T00:00:00+00:00",
+        "host": "lab-node",
+        "source_ip": "192.0.2.10",
+        "dataset": "zeek.conn",
+        "destination_port": 80
+      },
+      {
+        "timestamp": "2025-01-01T00:00:30+00:00",
+        "host": "lab-node",
+        "source_ip": "192.0.2.10",
+        "dataset": "zeek.conn",
+        "destination_port": 80
+      },
+      {
+        "timestamp": "2025-01-01T00:01:00+00:00",
+        "host": "lab-node",
+        "source_ip": "192.0.2.10",
+        "dataset": "zeek.conn",
+        "destination_port": 80
+      }
+    ],
+    "expected": []
+  },
+  {
+    "name": "outside-window",
+    "records": [
+      {
+        "timestamp": "2025-01-01T00:00:00+00:00",
+        "host": "lab-node",
+        "source_ip": "192.0.2.10",
+        "dataset": "zeek.conn",
+        "destination_port": 22
+      },
+      {
+        "timestamp": "2025-01-01T00:03:00+00:00",
+        "host": "lab-node",
+        "source_ip": "192.0.2.10",
+        "dataset": "zeek.conn",
+        "destination_port": 80
+      },
+      {
+        "timestamp": "2025-01-01T00:06:00+00:00",
+        "host": "lab-node",
+        "source_ip": "192.0.2.10",
+        "dataset": "zeek.conn",
+        "destination_port": 443
+      }
+    ],
+    "expected": []
+  }
+]

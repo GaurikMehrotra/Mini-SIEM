@@ -1,0 +1,59 @@
+title: Zeek and Suricata joint flow hypothesis evidence zeek
+id: 913b253b-0433-5d9f-b4bc-8192e4b6eefc
+name: sensor_pair_zeek
+status: experimental
+description: Original synthetic/lab detection hypothesis; validate locally before
+  use.
+author: Mini-SIEM contributors
+date: '2026-10-12'
+logsource:
+  product: minisiem
+  service: generic
+detection:
+  selection:
+    dataset: zeek.conn
+  condition: selection
+level: medium
+tags:
+- attack.t1071
+x-minisiem-evidence-only: true
+---
+title: Zeek and Suricata joint flow hypothesis evidence suricata
+id: 2dba288c-a984-521d-8296-e803c8c8b3bd
+name: sensor_pair_suricata
+status: experimental
+description: Original synthetic/lab detection hypothesis; validate locally before
+  use.
+author: Mini-SIEM contributors
+date: '2026-10-12'
+logsource:
+  product: minisiem
+  service: generic
+detection:
+  selection:
+    dataset: suricata.alert
+  condition: selection
+level: medium
+tags:
+- attack.t1071
+x-minisiem-evidence-only: true
+---
+title: Zeek and Suricata joint flow hypothesis
+id: c415470a-32e4-5674-b377-4e3e7395d93d
+name: sensor_pair
+status: experimental
+author: Mini-SIEM contributors
+description: Original bounded synthetic/lab correlation hypothesis.
+correlation:
+  type: temporal
+  rules:
+  - sensor_pair_zeek
+  - sensor_pair_suricata
+  group-by:
+  - source_ip
+  timespan: 2m
+  condition:
+    gte: 2
+level: high
+tags:
+- attack.t1071

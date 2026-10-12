@@ -1,0 +1,7 @@
+# Original synthetic asset metadata; never include a real inventory.
+192.0.2.10:
+  name: synthetic-lab-client
+  criticality: low
+198.51.100.20:
+  name: synthetic-lab-server
+  criticality: medium
